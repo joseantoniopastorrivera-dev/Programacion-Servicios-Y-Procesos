@@ -1,0 +1,46 @@
+UT1 · PROCESOS: SOLUCIONES DE LA RELACIÓN DE PROCESSBUILDER Y PROCESS
+=====================================================================
+
+CÓMO ABRIRLO EN INTELLIJ
+1. Descomprime el zip.
+2. En IntelliJ: File > Open... y selecciona la carpeta UT1.procesos
+   (la que contiene este fichero).
+3. Si aparece el aviso "Project JDK is not defined" o "Setup SDK", pulsa en él
+   y elige tu JDK (versión 11 o superior).
+
+CLASES (src/PSP)
+  Bloque 1 · Lanzar procesos
+    Ejercicio1       Mi primer proceso (abre la Calculadora)
+    Ejercicio2       ¿Quién es quién? (PID del hijo y del propio programa; espera 30 s)
+    Ejercicio3       Lanzador por argumentos (necesita argumentos, ver abajo)
+  Bloque 2 · Esperar y códigos de salida
+    Ejercicio4       ¿Ha ido bien? (mkdir pruebas; ejecútalo dos veces)
+    Ejercicio5       Comprobador de conexión (pide un host por teclado)
+    Ejercicio6       Trabajar en otra carpeta (necesita la carpeta pruebas del ejercicio 4)
+  Bloque 3 · Varios procesos a la vez
+    Ejercicio7       Secuencial frente a paralelo
+    Padre + Hijo     Ejercicio 8: Java lanza Java (ejecuta Padre)
+  Bloque 4 · Controlar y terminar procesos
+    Ejercicio9       Tiempo límite
+    Ejercicio10      El proceso rebelde (destroy frente a destroyForcibly)
+    Ejercicio11      Árbol de procesos (children y descendants)
+  Bloque 5 · Reto final
+    GestorProcesos   Ejercicio 12: mini gestor de procesos (menú interactivo)
+
+IMPORTANTE
+- El proyecto compila en la carpeta bin. Padre lanza a Hijo con
+  "java -cp bin PSP.Hijo", así que funciona ejecutándolo desde IntelliJ.
+- IntelliJ ejecuta los programas desde la raíz del proyecto: la carpeta "pruebas"
+  de los ejercicios 4 y 6 se crea ahí.
+- Ejercicio3 recibe el comando por argumentos. Hay una configuración preparada:
+  "Ejercicio3 (open -a Calculator)". Para probar otros comandos:
+  Run > Edit Configurations... > Program arguments.
+- Ejercicio5 y GestorProcesos piden datos por teclado: se responden en la consola
+  de IntelliJ.
+- Los comandos son de macOS (open -a Calculator). En Linux, cambia "open -a Calculator"
+  por el nombre de la aplicación, por ejemplo "gnome-calculator".
+
+DESDE LA TERMINAL (alternativa)
+  cd UT1.procesos
+  javac -d bin src/PSP/*.java
+  java -cp bin PSP.Ejercicio4

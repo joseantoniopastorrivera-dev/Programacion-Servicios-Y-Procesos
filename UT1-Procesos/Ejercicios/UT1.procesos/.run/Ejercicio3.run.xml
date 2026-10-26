@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Ejercicio3 (open -a Calculator)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="PSP.Ejercicio3" />
+    <module name="UT1.procesos" />
+    <option name="PROGRAM_PARAMETERS" value="open -a Calculator" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

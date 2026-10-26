@@ -1,0 +1,45 @@
+UT1 · EJEMPLOS DE COMUNICACIÓN ENTRE PROCESOS
+=============================================
+
+CÓMO ABRIRLO EN INTELLIJ
+1. Descomprime el zip.
+2. En IntelliJ: File > Open... y selecciona la carpeta UT1_Ejemplos_Comunicacion_Procesos
+   (la que contiene este fichero).
+3. Si aparece el aviso "Project JDK is not defined" o "Setup SDK", pulsa en él
+   y elige tu JDK (versión 11 o superior).
+
+Todas las clases están en src/PSP. Ninguna necesita argumentos: se ejecutan
+directamente con el botón de ejecutar de IntelliJ.
+
+FLUJOS DEL PROCESO
+  EjemploInputStream       getInputStream(): el padre lee la salida del hijo
+  EjemploOutputStream      getOutputStream(): el padre escribe en la entrada del hijo
+  EjemploErrorStream       getErrorStream(): el padre lee los errores del hijo
+
+REDIRECCIONES
+  EjemploRedirectOutput    redirectOutput(): la salida del hijo va a un fichero (listado.txt)
+  EjemploRedirectInput     redirectInput(): el hijo lee de un fichero (nombres.txt)
+  EjemploInherit           Redirect.INHERIT: el hijo usa la consola del padre
+  EjemploPipe              Redirect.PIPE: la salida llega al padre (opción por defecto)
+
+EJEMPLOS DEL GUION DE CLASE
+  Ejemplo01_LeerSalida          Leer la salida del hijo línea a línea (ping)
+  Ejemplo02_LeerErrores         Salida y errores por separado; redirectErrorStream(true)
+  Ejemplo03_EnviarDatos         Enviar datos a sort y cerrar la entrada
+  Ejemplo04_PadreHijo           Conversación con HijoCuadrado usando flush()
+  HijoCuadrado                  Hijo del ejemplo 4 (se puede ejecutar solo)
+  Ejemplo05_RedirigirFicheros   Salida, errores y entrada redirigidos a ficheros
+  Ejemplo06_InheritIO           inheritIO()
+  Ejemplo07_Pipeline            Tuberías entre procesos: ps -ef | grep java | wc -l
+  Ejemplo08_Bloqueo             Por qué hay que leer la salida antes de waitFor()
+
+IMPORTANTE
+- El proyecto compila en la carpeta bin. Ejemplo04_PadreHijo lanza a su hijo con
+  "java -cp bin PSP.HijoCuadrado", así que funciona ejecutándolo desde IntelliJ.
+- Los ejemplos que crean ficheros (listado.txt, nombres.txt, salida.txt...) los
+  dejan en la raíz del proyecto.
+
+DESDE LA TERMINAL (alternativa)
+  cd UT1_Ejemplos_Comunicacion_Procesos
+  javac -d bin src/PSP/*.java
+  java -cp bin PSP.EjemploInputStream
